@@ -1,0 +1,150 @@
+\documentclass[handout]{beamer}
+
+\usepackage[utf8x]{inputenx}
+\usepackage{hyperref}
+\usepackage[spanish]{babel}
+
+\title{Una Mirada General a los Modelos Cuantitativos de Redes Sociales}
+
+\author{George G. Vega Yon, Ph.D.}
+\date{18 de Noviembre, 2021\\VII Reunión Latinoamericana de Análisis de Redes Sociales\\(Virtual)}
+\institute[UofU Epi]{University of Utah\\Division of Epidemiology}
+
+\begin{document}
+
+\frame{\maketitle}
+
+\begin{frame}
+	\frametitle{Contenidos}
+\tableofcontents
+\end{frame}
+
+\frame{\title{Contenidos}\tableofcontents[currentsection]}
+
+\section{Modelando Sistemas Complejos}
+
+\begin{frame}
+	\frametitle{Modelando Sistemas Complejos}
+	Hoy por hoy
+	\pause
+	\begin{itemize}
+		\item Estadística ``clásica'' asume que objeto de observación distribuyen de manera \textit{independiente} (\textit{siempre}) e \textit{idéntica}\pause{} (en general).\pause
+		\item Entidades sociales no son independientes.\pause
+		\item Asumir independencia puede ser problemático.\pause
+		\item Programas y entrenamiento en el área apenas está comenzando.
+	\end{itemize}\pause
+	\vfill\hfill Sin embargo...\pause
+	\end{frame}
+
+\begin{frame}
+	\frametitle{Modelando Sistemas Complejos (cont. 1)}
+	\begin{itemize}
+		\item Contamos con mayor cantidad de datos.\pause
+		\item Tenemos mayor poder computacional.\pause
+		\item Existe una comunidad en ARS (SNA) que avanza desarrollo metodológico de manera acelerada.\pause
+		\item \textbf{Es posible (e importante) crear una mirada sistemática del modelamiento de sistemas complejos.}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Modelando Sistemas Complejos (cont. 2)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.7\linewidth]{diagrama.pdf}
+		\caption{Distintas dimensiones del análisis de redes sociales (perspectiva desde los datos.) Todas las entidades interactúan entre si.}
+	\end{figure}
+
+\end{frame}
+
+\section{Propuesta de Clasificación}
+
+\frame{\title{Contenidos}\tableofcontents[currentsection]}
+
+\begin{frame}
+	\frametitle{Propuesta de Clasificación}
+	
+	Dos dimensiones clave, \textbf{Estructura} vs \textbf{Comportamiento}, en particular\pause
+	\begin{itemize}
+		\item Estructura: Sólo nos interesa estudiar la red.\pause
+		\item Comportamiento: Sólo nos interesa estudiar el comportamiento \textbf{en el contexto de la red} (fija).\pause
+		\item Estructura x Comportamiento: Queremos ver como la red y el comportamiento interactúan entre si.
+	\end{itemize}
+
+\end{frame}
+
+\subsection{Modelando Estructura}
+
+\begin{frame}
+	\frametitle{Clasificación: Estructura}
+	
+	\textbf{No paramétricos}
+	\begin{itemize}
+		\item \textbf{Network Bootstrap}: Errores estándar y comparación entre grafos
+		\item \textbf{Network rewiring algorithms}: Identificación de \textit{motifs} condicionando en atributos observables (ej. secuencia o distribución de grado)
+	\end{itemize}
+	
+	\textbf{Paramétricos}
+	
+	\begin{itemize}
+		\item \textbf{Dynamic Actor Network Models (DyNAMs)}
+		\item \textbf{Exponential Random Graph Models (ERGMs)}
+		\item \textbf{Relational Event Models (REMs)} Incluyendo todas sus variantes, como por ejemplo, 
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Modelando Comportamiento}
+
+\begin{frame}
+	\frametitle{Clasificación: Comportamiento}
+	
+	\textbf{No paramétricos}
+	\begin{itemize}
+		\item \textbf{Test de permutación}: Simple o condicionado (ej. en \textit{in-degree})
+		\item 
+	\end{itemize}
+
+	\textbf{Paramétricos}
+	\begin{itemize}
+		\item \textbf{Test de autorrelación espacial}: Como la I de Moran.
+		\item \textbf{Spatial Autoregressive Models}: Modelos lineales asumiendo errores autocorrelacionados con una estructura de red.
+		\item \textbf{Regresiones rezagadas}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Modelando Estructura x Comportamiento}
+
+\begin{frame}
+	\frametitle{Clasificación: Estructura x Comportamiento}
+	
+	\textbf{No paramétrico}
+	\begin{itemize}
+		\item \textbf{Agent-Based Models (ABM)} Simulación de sistema complejo
+	\end{itemize}
+
+	\textbf{Paramétrico}
+	\begin{itemize}
+		\item \textbf{Stochastic Actor Oriented Model (SAOM)} Proceso de Markov continuo donde individuos alteran su comportamiento/estructura condicionando en lo observado.
+	\end{itemize}
+
+
+\end{frame}
+
+\section{Conclusiones}
+
+\begin{frame}
+	\frametitle{Conclusiones}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering
+	\Huge ¡Gracias! \normalsize 
+\titlepage
+\end{frame}
+
+\end{document}

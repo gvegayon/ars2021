@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenx}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=blue}
+
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+\fontfamily{phv}\selectfont
+
+% Funciones
+\renewcommand{\Pr}[1]{\mbox{P}\left(#1\right)}
+\newcommand{\Prcond}[2]{\Pr{\left.\vphantom{#2}#1\right|#2}}
+\newcommand{\trans}[1]{{#1}^\text{\bfseries t}}
+\newcommand{\s}[1]{s\left(#1\right)}
+\renewcommand{\exp}[1]{\text{exp}\left\{#1\right\}}
+
+% Simbolos
+\newcommand{\g}{\mathbf{g}}
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\Y}{\mathbf{Y}}
+
+\title{Una Mirada General a los Modelos Cuantitativos de Redes Sociales}
+\author{George G. Vega Yon, Ph.D.\footnote{University of Utah, Division of Epidemiology}}
+\date{7a Reunión Latinoamericana de Análisis de Redes Sociales\\“El análisis de redes en un contexto pandémico”\\Septiembre 15, 2021}
+
+\begin{document}
+\maketitle
+	
+\noindent\textbf{Palabras clave}: Método estadísticos, teoría, revisión de literatura
+
+\section{Introducción}
+
+La complejidad inherente de las redes sociales, para bien o para mal, suele ser simplificada. La disponibilidad de grandes cantidades de datos y poder computacional han sido fundamentales para el desarrollo del análisis cuantitativo en las ciencias sociales \parencite{Hofman2021,Lazer2020}. Al mismo tiempo, con el paso de los años, la ciencia a comenzado a tomar un nuevo camino, dando pié a la expansión y desarrollo de nuevos modelos matemáticos para el análisis de los sistemas complejos.
+
+A pesar de que, a primera vista, cualquier problema que involucra un grafo sugiere el uso de una metodología no tradicional--en cuanto a métodos estadísticos que asumen distribución idéntica e independiente--, tal asociación no es necesariamente cierta. En algunos casos el investigador está interesado en develar si es que la red importa o no en la toma de decisiones, tomándola como un elemento independiente del comportamiento o por el contrario, si es que existe un bucle causal entre comportamiento y estructura. Dependiendo de la naturaleza--que en estricto rigor podemos describir como \textit{supuestos}--la complejidad que tomará el análisis cuantitativo puede ser mínima o no. En este artículo, desarrollaré una mirada general a los últimos avances en el área del análisis cuantitativo de las redes sociales junto con identificar los componentes que les diferencian. 
+
+\section{Eligiendo el Modelo Adecuado}
+
+Si bien el análisis estadístico de sistemas complejos--cuyo estudio requiere de la observación de todos sus componentes como un todo--suele ser complejo por si mismo, la complejidad matemática del método es determinada en base a qué aspecto del sistema se quiere estudiar y los supuestos que el analista está dispuesto a tomar. En función de lo anterior, es posible realizar una clasificación sistemática de los tipos de problemas a estudiar.
+
+En general, estamos interesados en dos clases de análisis: el estudio de las \textbf{redes sociales por si mismas}, y el estudio de la relación entre red social y \textbf{comportamiento}. En el caso del primero, nos encontramos con preguntas del tipo \textit{¿es la homofilia lo que dicta la estructura de esta red?} o \textit{¿existen diferencias entre las redes sociales de la facción A y la facción B?}. Respecto al segundo, algunos ejemplos son \textit{¿es la obesidad contagiosa?} o \textit{¿son los ejecutivos mejor conectados más exitosos?}. Más aún, también cabe mezclar las dos clases, en cuyo caso la red y el comportamiento se analizan como uno solo, por ejemplo, \textit{¿cuál es el efecto del aumento de capital social sobre la riqueza y vise versa?}.
+
+\subsection{Sólo la Estructura}
+
+En el caso de que el foco de nuestro análisis sea únicamente la red social, algunos de los modelos disponibles son: Modelos de Redes Dinámicas en base a Actores \parencite[\textit{Dynamic Actor Network Models} o DyNAMs, por sus siglas en Inglés,]{Stadtfeld2017}, Modelos de Eventos Relacionales \parencite[\textit{Relational-Event Models} o REM, por sus siglas en inglés,]{Butts2008}, y Modelos Exponenciales de Grafos Aleatorios \parencite[\textit{Exponential Random Graph Models} o ERGMS, por sus siglas en Inglés,][, y muchos otros]{Robins2007,Holland1981,Frank1986,Wasserman1996,Snijders2006}. Aquí es fundamental identificar (o decidir) si es que se estudia a la red como un fenómeno dinámico.
+
+\subsection{Comportamiento (estructura exógena)}
+
+Bajo el supuesto de que la red social está fija o no depende del comportamiento de los individuos, el desafío está en incorporar la interdependencia entre los actores. Por ejemplo, los modelos autoregresivos espaciales \parencite[\textit{Spatial Auto-Regressive} o SAR, por sus siglas en Inglés,][]{LeSage2008,Elhorst2014,fischer2013handbook} y las regresiones temporales rezagadas.
+
+\subsection{Comportamiento (estructura endógena)} Cuando ambos red y comportamiento se asumen endógenos, la complejidad matemática que adquiere la creación de modelos de esta clase se vuelve considerable. Dos notables estrategias disponibles para el análisis de dichos modelos son los Modelos de Individuos Estocásticos \parencite[\textit{Stochastic Actor Oriented Models} o SAOM\footnote{Individuos \textit{estocásticos} porque los sujetos presentes en el sistema toman decisiones de una manera probabilística, \textit{i.e.}, estocástica. Dependiendo de una función objetivo, las personas crean, mantienen, disuelven lazos, o cambian su comportamiento.}, por sus siglas en Inglés,][]{Snijders2010intro} y los Modelos Basados en Agentes \parencite[\textit{Agent-Base Models} o ABM, por sus siglas en Inglés,][entre otros]{Tisue2004}.
+
+
+
+%\begin{equation}
+%	\y = \mathbf{X}\mathcal{\beta} + \rho \mathbf{W}\y + \varepsilon,\;\varepsilon\sim \mbox{MVN}\left(0, \Sigma\right)
+%\end{equation}
+%donde $\mathbf{y}$ es un vector de largo $n$, $\mathbf{X}$ es una matriz de $p\times n$, $\mathbf{\beta}$
+
+%\noindent \textbf{Modelos Exponenciales de Grafos Aleatorios (ERGMs)} \parencite[][and others]{Robins2007,Holland1981,Frank1986,Wasserman1996,Snijders2006}
+
+%\begin{equation}
+%	\Prcond{\G = \g}{\mathbf{X}, \theta} = \frac{\exp{\trans{\theta}\s{\g}}}{\sum_{\g'\in\G}\exp{\trans{\theta}\s{\g'}}}
+%\end{equation}
+
+%\noindent \textbf{Modelos de Individuos Estocásticos (SOAM)} \textcite{Snijders2010intro} 
+
+%\begin{equation}
+%	content...
+%\end{equation}
+
+%\noindent \textbf{Dynamic Network Actor Models (DyNAMs)} \textcite{Stadtfeld2017}
+%
+%\noindent \textbf{Relational Event Model (REM)} \textcite{Butts2008}
+
+\section{Discusión}
+
+Con el objetivo de guiar de mejor manera a los científicos trabajando con sistemas complejos, en este documento presenté una clasificación laxa de algunos los tipos de modelos de redes sociales que se encuentran disponibles hoy. Si bien varios de estos se han desarrollado por décadas, no ha sido sino hasta los últimos años que hemos adquirido el poder computacional necesario para su ejecución \parencite{Hofman2021,Lazer2020}. En linea con lo anterior, los modelos presentados aquí son sólo algunos de los más utilizados en el análisis cuantitativo de las redes sociales. Sin embargo, con la emergencia de las \textit{Ciencias Sociales Computacionales}, la estadística Bayesiana junto con la estadística no-paramétrica han tomado un rol importante en el avance y ideación de nuevas herramientas para entender el rol que juegan las redes sociales. Sólo podemos esperar que el número y especificidad de las herramientas disponibles aumente cada vez más, haciendo importante el entendimiento y educación fundamental sobre los supuestos, limitaciones, y aplicaciones que estos tienen. 
+
+%Éste trabajo se organizará en torno a los supuestos e hipótesis que el investigador desea utilizar en su análisis. En particular, podemos listar los siguientes:
+%• Redes estáticas
+%◦ Sólo la red
+%◦ Red y su efecto en el comportamiento – red exógena.
+%◦ Red y su efecto en el comportamiento (y viceversa) – red endógena.
+%• Redes dinámcas
+%◦ Sólo la red
+%◦ Red y su efecto en el comportamiento – red exógena.
+%◦ Red y su efecto en el comportamiento (y viceversa) – red endógena.
+%Dependiendo del tipo de análisis, el científico puede relajar ciertos requerimientos para facilitar el análisis de las redes y/o comportamiento. Por ejemplo
+%• Al estudiar como políticas de salud se disipan entre países vecinos podemos trabajar bajo el supuesto de que las redes son estáticas.
+%• Al estudiar cómo las relaciones bilaterales afectan la adopción de nuevas políticas no podemos asumir que las redes son estáticas, más aún, probablemente tenemos que lidear con el hecho de que el comportamiento de los países afecta de manera directa la manera en la que las relaciones bilaterales de desarrollan.
+%
+%Fundamentación
+%Metodología
+%Resultados
+%Discusión
+%Bibliografía
+
+\printbibliography
+
+\end{document}
+
