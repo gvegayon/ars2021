@@ -1,8 +1,15 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,10pt]{beamer}
 
-\usepackage[utf8x]{inputenx}
+%\usepackage[utf8x]{inputenx}
 \usepackage{hyperref}
 \usepackage[spanish]{babel}
+
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand*{\citesetup}{%
+	\footnotesize
+	\biburlsetup
+	\frenchspacing}
 
 \usetheme{Marburg}
 %\usecolortheme{beaver}
@@ -54,7 +61,7 @@ Descarga esta presentación desde \href{https://ggv.cl/slides/ars2021}{\color{bl
 	\frametitle{Modelando Sistemas Complejos (cont. 1)}
 	\begin{itemize}
 		\item Contamos con mayor cantidad de datos.\pause
-		\item Tenemos mayor poder computacional.\pause
+		\item Tenemos mayor poder computacional \parencite{Hofman2021,Lazer2020}.\pause
 		\item Existe una comunidad en ARS (SNA) que avanza desarrollo metodológico de manera acelerada.\pause
 \end{itemize}
 
@@ -95,8 +102,9 @@ Descarga esta presentación desde \href{https://ggv.cl/slides/ars2021}{\color{bl
 \pause
 	\textbf{No paramétricos}
 	\begin{itemize}
-		\item \textbf{Network Bootstrap}: Errores estándar y comparación entre grafos
-		\item \textbf{Network rewiring algorithms}: Identificación de \textit{motifs} condicionando en atributos observables (ej. secuencia o distribución de grado)
+		\item \textbf{Network Bootstrap} Errores estándar y comparación entre grafos
+		\item \textbf{Network rewiring algorithms (e.g. CUG test)} Identificación de \textit{motifs} condicionando en atributos observables (ej. secuencia o distribución de grado)
+		\item \textbf{Quadratic Assignment Procedure (QAP)} Permutación de etiquetas para test de hipótesis.
 	\end{itemize}\pause	
 	
 	\textbf{Paramétricos}
@@ -105,6 +113,8 @@ Descarga esta presentación desde \href{https://ggv.cl/slides/ars2021}{\color{bl
 		\item \textbf{Exponential Random Graph Models (ERGMs)} Incluyendo todas sus variantes, como por ejemplo, TERGMs, BERGMs, ERGMitos, etc.
 		\item \textbf{Relational Event Models (REMs) y Dynamic Actor Network Models (DyNAMs)} Se observa una secuencia de interacciones en el tiempo.
 	\end{itemize}
+
+Ref: \textcite{Snijders1999,Butts2008b,Krackhardt1988,Robins2007,VegaYon2021,Caimo2014,Butts2008,Stadtfeld2017}
 	
 \end{frame}
 
@@ -124,7 +134,9 @@ Descarga esta presentación desde \href{https://ggv.cl/slides/ars2021}{\color{bl
 		\item \textbf{Spatial Autoregressive Models}: Modelos lineales asumiendo errores autocorrelacionados con una estructura de red.
 		\item \textbf{Regresiones rezagadas} Entidades actúan en base a exposición pasada.
 	\end{itemize}
-	
+
+Ref: \textcite{Butts2008b,Moran1950,LeSage2008,Valente2019}
+
 \end{frame}
 
 \subsection{Modelando Estructura x Comportamiento}
@@ -143,6 +155,7 @@ Descarga esta presentación desde \href{https://ggv.cl/slides/ars2021}{\color{bl
 		\item \textbf{Discrete Exponential-Family Models (DEFMs)} Individuos toman acción sobre comportamiento y estructura de manera simultánea (en desarrollo...).
 	\end{itemize}
 
+Ref: \textcite{Tisue2004,Snijders2010intro}
 
 \end{frame}
 
@@ -165,6 +178,11 @@ Descarga esta presentación desde \href{https://ggv.cl/slides/ars2021}{\color{bl
 	\Huge ¡Gracias! \normalsize 
 \titlepage%
 \vfill\hfill  \href{https://ggvy.cl}{\texttt{ggvy.cl}}
+\end{frame}
+
+\begin{frame}[allowframebreaks=1]
+	\frametitle{Bibliografía}
+	\printbibliography
 \end{frame}
 
 \end{document}
